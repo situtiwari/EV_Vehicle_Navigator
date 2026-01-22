@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - EV Navigator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">EV Navigator</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>About EV Navigator</h1>
+        <p><strong>EV Navigator</strong> is a project developed under Prof. Ravi Gupta at IIT Jodhpur. 
+           It plans efficient EV routes considering battery and charging stations.</p>
+        <p>Current implementation: 1 km per 2% battery.</p>
+        <p>Future: ML model to auto-adjust mileage per vehicle type using supervised learning.</p>
+    </section>
+    <footer>
+        &copy; 2022 EV Navigator. Developed at IIT Jodhpur under Prof. Ravi Gupta.
+    </footer>
+</body>
+</html>

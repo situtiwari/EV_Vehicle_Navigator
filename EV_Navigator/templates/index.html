@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Navigator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script>
+        window.onload = function() {
+            {% if redirect_to_map %}
+                setTimeout(function() {
+                    window.location.href = "/map";
+                }, 3000);
+            {% endif %}
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">EV Navigator</div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Find Your EV Route</h1>
+        <p>Enter source, destination, and your current battery to find an optimized route.</p>
+        {% if message %}
+            <div class="message {% if redirect_to_map %}success{% else %}error{% endif %}">
+                {{ message }}
+            </div>
+        {% endif %}
+        <form method="POST">
+            <input type="number" name="source" placeholder="Source Node (0-8)" min="0" max="8" required>
+            <input type="number" name="destination" placeholder="Destination Node (0-8)" min="0" max="8" required>
+            <input type="number" name="battery" placeholder="Battery % (0-100)" min="0" max="100" required>
+            <button type="submit">Find Path</button>
+        </form>
+    </section>
+    <section class="map-instructions">
+        <p>After submitting, a success message will appear. You'll be redirected to the map.</p>
+    </section>
+    <footer>
+        &copy; 2022 EV Navigator. Developed at IIT Jodhpur under Prof. Ravi Gupta.
+    </footer>
+</body>
+</html>
